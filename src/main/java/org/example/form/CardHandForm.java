@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Random;
 
 public class CardHandForm {
-    public List<PokerHandDTO> formPokerHand(List<String> deck,int countPerson) {
+    public List<PokerHandDTO> formPokerHand(List<String> deck, int countPerson) {
         List<PokerHandDTO> hands = new ArrayList<>();
         Random random = new Random();
         String intermediateHand = "";
         for (int i = 0; i < countPerson; i++) {
-            intermediateHand="";
+            intermediateHand = "";
             for (int j = 0; j < 5; j++) {
                 int count = random.nextInt(deck.size());
                 intermediateHand += deck.get(count) + " ";
