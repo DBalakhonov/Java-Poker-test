@@ -13,9 +13,8 @@ public class Main {
         CardDeckForm cardDeckForm = new CardDeckForm();
         CardHandForm cardHandForm = new CardHandForm();
         PokerHandComparer pokerHandComparer = new PokerHandComparer();
-        List<PokerHandDTO> hands = new ArrayList<PokerHandDTO>();
         List<String> cardDeck=cardDeckForm.Deck();
-        hands=cardHandForm.formPokerHand(cardDeck,10);
+        List<PokerHandDTO> hands = cardHandForm.formPokerHand(cardDeck,10);
         hands=pokerHandComparer.getStrength(hands);
         for (int i = 0; i < hands.size(); i++) {
             System.out.println(hands.get(i));
