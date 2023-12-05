@@ -1,5 +1,7 @@
 package org.example.form;
 
+import org.example.dto.Card;
+import org.example.dto.DeckDTO;
 import org.example.dto.PokerHandDTO;
 
 import java.util.ArrayList;
@@ -7,18 +9,16 @@ import java.util.List;
 import java.util.Random;
 
 public class CardHandForm {
-    public List<PokerHandDTO> formPokerHand(List<String> deck, int countPerson) {
+    public List<PokerHandDTO> formPokerHand(DeckDTO deck, int countPerson) {
         List<PokerHandDTO> hands = new ArrayList<>();
         Random random = new Random();
-        String intermediateHand = "";
+
         for (int i = 0; i < countPerson; i++) {
-            intermediateHand = "";
+            List<Card> intermediateHand = new ArrayList<>();
             for (int j = 0; j < 5; j++) {
-                int count = random.nextInt(deck.size());
-                intermediateHand += deck.get(count) + " ";
-                deck.remove(count);
+                int count = random.nextInt(deck.getDeck().size());
+                intermediateHand.add(deck.getDeck().remove(count));
             }
-            intermediateHand = intermediateHand.trim();
             hands.add(new PokerHandDTO(intermediateHand));
         }
         return hands;

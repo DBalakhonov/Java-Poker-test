@@ -1,20 +1,44 @@
 package org.example.dto;
 
-import lombok.Data;
-import lombok.experimental.Accessors;
 
-@Data
-@Accessors
+import org.example.enums.PokerCombinations;
+
+import java.util.List;
+
 public class PokerHandDTO {
-    private String hand;
-    private double handStrength;
+    private List<Card> hand;
+    private PokerCombinations combinations;
 
-    public PokerHandDTO(String hand) {
+    public PokerHandDTO(List<Card> hand) {
         this.hand = hand;
+    }
+
+    public PokerHandDTO(List<Card> hand, PokerCombinations combinations) {
+        this.hand = hand;
+        this.combinations = combinations;
+    }
+
+    public List<Card> getHand() {
+        return hand;
+    }
+
+    public void setHand(List<Card> hand) {
+        this.hand = hand;
+    }
+
+    public PokerCombinations getCombinations() {
+        return combinations;
+    }
+
+    public void setCombinations(PokerCombinations combinations) {
+        this.combinations = combinations;
     }
 
     @Override
     public String toString() {
-        return hand;
+        return "PokerHandDTO{" +
+                "hand=" + hand +
+                '}';
     }
 }
+

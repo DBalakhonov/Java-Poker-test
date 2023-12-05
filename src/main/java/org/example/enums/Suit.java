@@ -1,7 +1,10 @@
 package org.example.enums;
 
 public enum Suit {
-    H("H"), D("D"), C("C"), S("S");
+    H("H"),
+    D("D"),
+    C("C"),
+    S("S");
 
     private final String displayName;
 
